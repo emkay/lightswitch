@@ -1,5 +1,5 @@
 [all]
-  enableHeader = true
+  enableHeader = false
 
 [org.1234]
   enableHeader = false

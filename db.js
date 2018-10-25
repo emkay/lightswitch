@@ -15,7 +15,6 @@ module.exports = (path, key) => {
 
   const load = async p => {
     const config = await toml(p)
-    console.log(config)
     const keys = Object.keys(config)
     const promises = keys.map(key => {
       return put(key, JSON.stringify(config[key]))

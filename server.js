@@ -22,7 +22,6 @@ const run = (port, key, dbPath, bundle) => {
   app.get('/feature/:key', async (req, res, params) => {
     const {key} = params
     try {
-      logger.info(`getting log for key: ${key}`)
       const result = await db.get(key)
       const value = JSON.parse(result[0].value)
       res.json(value, 200)
