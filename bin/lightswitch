@@ -1,0 +1,42 @@
+#!/usr/bin/env node
+const server = require('../server')
+const yargs = require('yargs')
+yargs.command('serve', 'start the server', () => {
+  yargs
+    .option('port', {
+      alias: 'p',
+      describe: 'port to bind on',
+      default: process.env.PORT || 5000
+    })
+    .option('key', {
+      alias: 'k',
+      describe: 'key for data',
+      default: null
+    })
+    .option('db', {
+      alias: 'd',
+      describe: 'path to database'
+    })
+    .option('bundle', {
+      alias: 'b',
+      describe: 'configuration bundle',
+      default: null
+    })
+}, (argv) => {
+  if (argv.verbose) console.info(`start server on :${argv.port}`)
+  server(argv.port, argv.key, argv.db, argv.bundle)
+})
+/*
+.command('seed [key]', 'seed the config data', () => {
+  yargs
+    .positional('key', {
+      describe: 'key for data',
+      default: null
+    })
+})
+*/
+.option('verbose', {
+  alias: 'v',
+  default: false
+})
+.argv

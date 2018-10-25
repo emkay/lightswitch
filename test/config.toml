@@ -1,0 +1,8 @@
+[all]
+  enableHeader = true
+
+[org.1234]
+  enableHeader = false
+[org.4321]
+  enableHeader = false
+  superSpeed = true

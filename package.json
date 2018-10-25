@@ -1,0 +1,46 @@
+{
+  "name": "lightswitch",
+  "version": "1.0.0",
+  "description": "The feature switch service",
+  "main": "index.js",
+  "scripts": {
+    "lint": "standard",
+    "release": "npm run lint && npm test && standard-version && git push origin master && npm publish",
+    "test": "tap test/*.js --100",
+    "update-coc": "weallbehave -o . && git add CODE_OF_CONDUCT.md && git commit -m 'docs(coc): updated CODE_OF_CONDUCT.md'",
+    "update-contrib": "weallcontribute -o . && git add CONTRIBUTING.md && git commit -m 'docs(contributing): updated CONTRIBUTING.md'"
+  },
+  "bin": "bin/lightswitch",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emkay/lightswitch.git"
+  },
+  "keywords": [],
+  "author": {
+    "name": "Michael Matuzak",
+    "email": "mmatuzak@gmail.com",
+    "twitter": "@mmatuzak"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/emkay/lightswitch/issues"
+  },
+  "homepage": "https://github.com/emkay/lightswitch#readme",
+  "dependencies": {
+    "@hyperswarm/network": "0.0.4",
+    "@iarna/toml": "^1.7.1",
+    "hyperdb": "^3.2.0",
+    "pino": "^5.8.0",
+    "pump": "^3.0.0",
+    "theodore": "^1.4.0",
+    "yargs": "^12.0.2"
+  },
+  "devDependencies": {
+    "pino-pretty": "^2.2.2",
+    "standard": "^11.0.1",
+    "standard-version": "^4.4.0",
+    "tap": "^12.0.1",
+    "weallbehave": "^1.2.0",
+    "weallcontribute": "^1.0.8"
+  }
+}
