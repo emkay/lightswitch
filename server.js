@@ -33,7 +33,17 @@ const run = (port, key, dbPath, bundle) => {
   })
 
   app.post('/feature/:key', async (req, res, params) => {
-    res.send('OK', 200)
+    const {key} = params
+    try {
+      await db.put(key, req.body)
+      res.send('OK', 200)
+    } catch (e) {
+      logger.error(e)
+      res.json({
+        name: e.name,
+        msg: e.message
+      }, 500)
+    }
   })
 
   app.get('*', (req, res, params) => {
